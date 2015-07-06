@@ -1,17 +1,11 @@
-<% provide :title, "All users" %>
+<% provide :title, t("user.all_user") %>
 <p>
-  <h1>All users<br>
-  (<%= @users.all.count %>)</h1>
+  <h1><%= t "user.all_user" %>
+  (<%= @users.count %>)</h1>
 </p>
-<div class="column">
-  <table class="table">
-    <tbody>
-      <li class="divider" ></li>
-      <%= will_paginate %>
-        <ul class="users" >
-          <tr><%= render @users %></tr>
-        </ul>
-      <%= will_paginate %>
-    </tbody>
-  </table>
-</div>
+<p>
+  <%= link_to t("user.create_new"), new_admin_user_path,
+    class: "btn btn-success" %>
+</p>
+<%= render @users %>
+<%= will_paginate %>
